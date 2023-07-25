@@ -3,6 +3,7 @@ use crate::sale::MenuSeller;
 //成交价格
 pub struct Trade{
     pub id: u64,
+    pub good: String,
     pub unit_price: f32,
     pub quantity: u64,
 }
@@ -13,6 +14,7 @@ pub fn initialize_trade(buy_order: &MenuBuyer, sell_order: &MenuSeller)->Option<
         //取双方数量最小值为成交量
         Some(Trade{
             id:buy_order.id,
+            good:buy_order.good.clone(),
             unit_price:sell_order.unit_price,
             quantity:trade_quantity,
         })
